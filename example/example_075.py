@@ -96,10 +96,7 @@ def main():
     d: Document = Document()
     for i in range(0, 10):
         p: typing.Optional[Page] = None
-        if i % 2 == 0:
-            p = doc_001.get_page(i)
-        else:
-            p = doc_002.get_page(i)
+        p = doc_001.get_page(i) if i % 2 == 0 else doc_002.get_page(i)
         d.append_page(p)
 
     # write

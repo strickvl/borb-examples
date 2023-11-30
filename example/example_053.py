@@ -12,7 +12,7 @@ def main():
 
     assert doc is not None
     document_info: DocumentInfo = doc.get_document_info()
-    print("Producer: %s" % document_info.get_producer())
+    print(f"Producer: {document_info.get_producer()}")
 
 
 if __name__ == "__main__":

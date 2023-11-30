@@ -129,11 +129,13 @@ def _build_itemized_description_table(products: typing.List[Product] = []):
         table_001.add(TableCell(Paragraph(item.name), background_color=c))
         table_001.add(TableCell(Paragraph(str(item.quantity)), background_color=c))
         table_001.add(
-            TableCell(Paragraph("$ " + str(item.price_per_sku)), background_color=c)
+            TableCell(
+                Paragraph(f"$ {str(item.price_per_sku)}"), background_color=c
+            )
         )
         table_001.add(
             TableCell(
-                Paragraph("$ " + str(item.quantity * item.price_per_sku)),
+                Paragraph(f"$ {str(item.quantity * item.price_per_sku)}"),
                 background_color=c,
             )
         )
@@ -145,7 +147,7 @@ def _build_itemized_description_table(products: typing.List[Product] = []):
             table_001.add(TableCell(Paragraph(" "), background_color=c))
 
     # subtotal
-    subtotal: float = sum([x.price_per_sku * x.quantity for x in products])
+    subtotal: float = sum(x.price_per_sku * x.quantity for x in products)
     table_001.add(
         TableCell(
             Paragraph(
@@ -184,7 +186,9 @@ def _build_itemized_description_table(products: typing.List[Product] = []):
         )
     )
     table_001.add(
-        TableCell(Paragraph("$ " + str(taxes), horizontal_alignment=Alignment.RIGHT))
+        TableCell(
+            Paragraph(f"$ {taxes}", horizontal_alignment=Alignment.RIGHT)
+        )
     )
 
     # total
@@ -198,7 +202,9 @@ def _build_itemized_description_table(products: typing.List[Product] = []):
         )
     )
     table_001.add(
-        TableCell(Paragraph("$ " + str(total), horizontal_alignment=Alignment.RIGHT))
+        TableCell(
+            Paragraph(f"$ {total}", horizontal_alignment=Alignment.RIGHT)
+        )
     )
     table_001.set_padding_on_all_cells(Decimal(2), Decimal(2), Decimal(2), Decimal(2))
     table_001.no_borders()

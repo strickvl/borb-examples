@@ -19,7 +19,7 @@ def main():
     # the following code generates 20 colors, evenly spaced in the HSV spectrum
     colors = [
         HSVColor(Decimal(x / 360), Decimal(1), Decimal(1))
-        for x in range(0, 360, int(360 / 20))
+        for x in range(0, 360, 360 // 20)
     ]
 
     for c in colors:
