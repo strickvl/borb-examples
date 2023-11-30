@@ -33,10 +33,10 @@ def insert_example_at(n: int) -> None:
         # determine new number (as str)
         new_number_str: str = str(old_number + 1)
         while len(new_number_str) < 3:
-            new_number_str = "0" + new_number_str
+            new_number_str = f"0{new_number_str}"
 
         # determine the path of the file
-        new_path: Path = f.parent / ("example_%s.py" % new_number_str)
+        new_path: Path = f.parent / f"example_{new_number_str}.py"
 
         # rename
         to_rename.append((old_number, f, new_path))
@@ -46,7 +46,7 @@ def insert_example_at(n: int) -> None:
 
     # execute the rename
     for t in to_rename:
-        print("[PY] renaming %s to %s .." % (t[1].name, t[2].name))
+        print(f"[PY] renaming {t[1].name} to {t[2].name} ..")
         if not debug_mode:
             t[1].rename(t[2])
 
@@ -77,12 +77,12 @@ def insert_img_at(n: int) -> None:
         # determine old number (as str)
         old_number_str: str = str(old_number)
         while len(old_number_str) < 3:
-            old_number_str = "0" + old_number_str
+            old_number_str = f"0{old_number_str}"
 
         # determine new number (as str)
         new_number_str: str = str(old_number + 1)
         while len(new_number_str) < 3:
-            new_number_str = "0" + new_number_str
+            new_number_str = f"0{new_number_str}"
 
         # determine the path of the file
         new_path: Path = f.parent / (old_name.replace(old_number_str, new_number_str))
@@ -95,7 +95,7 @@ def insert_img_at(n: int) -> None:
 
     # execute the rename
     for t in to_rename:
-        print("[PNG] renaming %s to %s .." % (t[1].name, t[2].name))
+        print(f"[PNG] renaming {t[1].name} to {t[2].name} ..")
         if not debug_mode:
             t[1].rename(t[2])
 
@@ -115,9 +115,9 @@ def insert_img_at(n: int) -> None:
             md_text = md_file_handle.read()
 
         # rename
-        print("[MD] Updating %s" % md_name)
+        print(f"[MD] Updating {md_name}")
         for t in to_rename:
-            print("[MD] Replacing %s for %s .." % (t[1].name, t[2].name))
+            print(f"[MD] Replacing {t[1].name} for {t[2].name} ..")
             if not debug_mode:
                 while t[1].name in md_text:
                     md_text = md_text.replace(t[1].name, t[2].name)

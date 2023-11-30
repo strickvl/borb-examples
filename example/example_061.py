@@ -28,7 +28,8 @@ def create_document():
     for font_color in [X11Color("Red"), X11Color("Green"), X11Color("Blue")]:
         layout.add(
             Paragraph(
-                "Hello World, in %s!" % font_color.get_name(), font_color=font_color
+                f"Hello World, in {font_color.get_name()}!",
+                font_color=font_color,
             )
         )
 

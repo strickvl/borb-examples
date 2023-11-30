@@ -77,9 +77,9 @@ def main():
         r: int = int(i / 9)
         c: int = i % 9
         background_color: Color = HexColor("ffffff")
-        if r in [0, 1, 2, 6, 7, 8] and c in [0, 1, 2, 6, 7, 8]:
+        if r in {0, 1, 2, 6, 7, 8} and c in {0, 1, 2, 6, 7, 8}:
             background_color = HexColor("f1cd2e")
-        if r in [3, 4, 5] and c in [3, 4, 5]:
+        if r in {3, 4, 5} and c in {3, 4, 5}:
             background_color = HexColor("f1cd2e")
         if sudoku_str[i] == ".":
             t.add(

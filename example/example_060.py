@@ -23,7 +23,7 @@ def create_document():
 
     # add Paragraph for each font (name)
     for font_name in ["Helvetica", "Helvetica-Bold", "Courier"]:
-        layout.add(Paragraph("Hello World, from %s!" % font_name, font=font_name))
+        layout.add(Paragraph(f"Hello World, from {font_name}!", font=font_name))
 
     # write
     with open("output.pdf", "wb") as pdf_file_handle:
